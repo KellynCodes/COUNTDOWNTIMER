@@ -34,13 +34,14 @@ namespace COUNTDOWNTIMER
 
         public void workHour()
         {
-            var TimeDuration = new DateTime(2002, 5, 5, 1, userWorkHour, 5, 0);
+            var TimeDuration = new DateTime(2002, 5, 5, 1, userWorkHour, 0, 0);
             DateTime workStartTime = DateTime.Now;
             for (int hr = 0; hr < userWorkHour * 60; hr++)
             {
                 Console.Write("Your work finishes in: {0}",TimeDuration.ToString("mm:ss"));
                 TimeDuration = TimeDuration.AddSeconds(-1);
                 Thread.Sleep(1000);
+                Console.Beep();
                 Console.Clear();
 
             }
@@ -50,13 +51,14 @@ namespace COUNTDOWNTIMER
 
         private void restHour()
         {
-            var EndTimeDuration = new DateTime(2002, 5, 5, 1, userRestHour, 5, 0);
+            var EndTimeDuration = new DateTime(2002, 5, 5, 1, userRestHour, 0, 0);
             DateTime workStartTime = DateTime.Now;
             for (int hr = 0; hr < userRestHour * 60; hr++)
             {
-                Console.Write("Your work finishes in: {0}", EndTimeDuration.ToString("mm:ss"));
+                Console.Write("Your work Continues in: {0}", EndTimeDuration.ToString("mm:ss"));
                 EndTimeDuration = EndTimeDuration.AddSeconds(-1);
                 Thread.Sleep(1000);
+                Console.Beep();
                 Console.Clear();
 
             }
