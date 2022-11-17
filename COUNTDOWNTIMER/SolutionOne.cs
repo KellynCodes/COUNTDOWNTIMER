@@ -19,9 +19,10 @@ namespace COUNTDOWNTIMER
             var userWorkHourInInt = Console.ReadLine();
             try
             {
-                userWorkHour = Convert.ToInt32(userRestHourInInt);
-                userRestHour = Convert.ToInt32(userRestHourInInt);
+                userWorkHour = Convert.ToInt32(userWorkHourInInt);
+                userRestHour = Convert.ToInt32( userRestHourInInt);
                 workHour();
+                restHour();
             }
             catch
             {
@@ -31,23 +32,34 @@ namespace COUNTDOWNTIMER
         }
 
 
-        private void workHour()
+        public void workHour()
         {
-            var TimeDuration = new DateTime(2002, 20, 5, 1, userWorkHour, 5, 0);
+            var TimeDuration = new DateTime(2002, 5, 5, 1, userWorkHour, 5, 0);
             DateTime workStartTime = DateTime.Now;
-            for (int hr = 0; hr < userRestHour * 60; hr++)
+            for (int hr = 0; hr < userWorkHour * 60; hr++)
             {
-                Console.Write($"Your work finishes in {TimeDuration.ToString("mm:ss")}");
+                Console.Write("Your work finishes in: {0}",TimeDuration.ToString("mm:ss"));
                 TimeDuration = TimeDuration.AddSeconds(-1);
+                Thread.Sleep(1000);
+                Console.Clear();
+
             }
-            Console.WriteLine($"Your work hour will expire in {TimeDuration}");
-            Console.WriteLine($"{4}");
+            Console.WriteLine($"Your work has ended in: {workStartTime} ");
 
         }
 
         private void restHour()
         {
-            Console.WriteLine($"Your work hour will resume in");
+            var EndTimeDuration = new DateTime(2002, 5, 5, 1, userRestHour, 5, 0);
+            DateTime workStartTime = DateTime.Now;
+            for (int hr = 0; hr < userRestHour * 60; hr++)
+            {
+                Console.Write("Your work finishes in: {0}", EndTimeDuration.ToString("mm:ss"));
+                EndTimeDuration = EndTimeDuration.AddSeconds(-1);
+                Thread.Sleep(1000);
+                Console.Clear();
+
+            }
 
         }
     }
