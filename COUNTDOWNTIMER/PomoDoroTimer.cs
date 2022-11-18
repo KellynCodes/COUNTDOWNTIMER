@@ -8,9 +8,9 @@ namespace COUNTDOWNTIMER
     public class PomoDoroTimer
     {
 
-        public int userWorkHour;
-        public int userRestHour;
-        public bool ContinueTiming;
+        private int userWorkHour;
+        private int userRestHour;
+        private bool ContinueTiming;
 
         public void Start()
         {
@@ -24,7 +24,7 @@ namespace COUNTDOWNTIMER
                     userRestHour = Convert.ToInt32(userRestHourInInt);
                     workHour();
                     restHour();
-                Start();
+                Console.WriteLine($"Your work ended in {DateTime.Now}");
             }
                 catch
                 {
