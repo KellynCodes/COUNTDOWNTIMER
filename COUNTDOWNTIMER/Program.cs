@@ -10,7 +10,7 @@ namespace COUNTDOWNTIMER
 
         internal static void Main(string[] args)
         {
-            SolutionOne SolutionOne = new SolutionOne();
+            PomoDoroTimer SolutionOne = new PomoDoroTimer();
             SolutionOne.Start();
         }
 

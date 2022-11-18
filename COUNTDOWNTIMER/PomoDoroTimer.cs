@@ -5,11 +5,12 @@ using System.Timers;
 
 namespace COUNTDOWNTIMER
 {
-    public class SolutionOne
+    public class PomoDoroTimer
     {
 
         public int userWorkHour;
         public int userRestHour;
+        public bool ContinueTiming;
 
         public void Start()
         {
@@ -17,18 +18,19 @@ namespace COUNTDOWNTIMER
             var userRestHourInInt = Console.ReadLine();
             Console.WriteLine("Enter work Minutes");
             var userWorkHourInInt = Console.ReadLine();
-            try
-            {
-                userWorkHour = Convert.ToInt32(userWorkHourInInt);
-                userRestHour = Convert.ToInt32( userRestHourInInt);
-                workHour();
-                restHour();
-            }
-            catch
-            {
-                Console.WriteLine("Number is not valid");
+                try
+                {
+                    userWorkHour = Convert.ToInt32(userWorkHourInInt);
+                    userRestHour = Convert.ToInt32(userRestHourInInt);
+                    workHour();
+                    restHour();
                 Start();
             }
+                catch
+                {
+                    Console.WriteLine("Number is not valid");
+                    Start();
+                }
         }
 
 
@@ -59,9 +61,11 @@ namespace COUNTDOWNTIMER
                 EndTimeDuration = EndTimeDuration.AddSeconds(-1);
                 Thread.Sleep(1000);
                 Console.Beep();
-                Console.Clear();
+              Console.Clear();
 
             }
+
+
 
         }
     }
